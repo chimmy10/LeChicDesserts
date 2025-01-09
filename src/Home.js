@@ -21,7 +21,7 @@ function Home() {
 				onLoad={() => setImageLoaded(true)} // Set the state to remove blur when loaded
 			/>
 
-			<div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
+			<div className="relative z-10 flex flex-col items-center h-full text-center pt-60 sm:pt-48">
 				<h1 className="mb-16 text-5xl font-normal tracking-tight sm:text-7xl text-primary-300">
 					LeDesserts de Paris
 				</h1>
