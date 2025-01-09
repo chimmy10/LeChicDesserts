@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	items: [],
 	confirmOrder: false,
+	explore: false,
 };
 
 const shopCart = createSlice({
@@ -54,9 +55,13 @@ const shopCart = createSlice({
 			state.confirmOrder = false;
 			state.items = [];
 		},
+		setExplore(state) {
+			state.explore = true;
+		},
 	},
 });
 
-export const { adding, reducing, remove, confirm, newOrder } = shopCart.actions;
+export const { adding, reducing, remove, confirm, newOrder, setExplore } =
+	shopCart.actions;
 
 export default shopCart.reducer;
