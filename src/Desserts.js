@@ -29,16 +29,6 @@ function Desserts() {
 		);
 	}
 
-	if (!menu || menu.length === 0) {
-		return (
-			<div className="flex items-center justify-center min-h-screen">
-				<p className="text-xl text-gray-500">
-					No menu items available at the moment.
-				</p>
-			</div>
-		);
-	}
-
 	function handleAdd(item) {
 		dispatch(
 			adding({
