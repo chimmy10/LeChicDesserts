@@ -4,6 +4,7 @@ const initialState = {
 	items: [],
 	confirmOrder: false,
 	explore: false,
+	imageLoaded: false,
 };
 
 const shopCart = createSlice({
@@ -48,20 +49,30 @@ const shopCart = createSlice({
 			const itemName = action.payload;
 			state.items = state.items.filter((item) => item.name !== itemName);
 		},
-		confirm(state, action) {
+		confirm(state) {
 			state.confirmOrder = true;
 		},
-		newOrder(state, action) {
+		newOrder(state) {
 			state.confirmOrder = false;
 			state.items = [];
 		},
 		setExplore(state) {
 			state.explore = true;
 		},
+		setImageLoaded(state) {
+			state.imageLoaded = true;
+		},
 	},
 });
 
-export const { adding, reducing, remove, confirm, newOrder, setExplore } =
-	shopCart.actions;
+export const {
+	adding,
+	reducing,
+	remove,
+	confirm,
+	newOrder,
+	setExplore,
+	setImageLoaded,
+} = shopCart.actions;
 
 export default shopCart.reducer;

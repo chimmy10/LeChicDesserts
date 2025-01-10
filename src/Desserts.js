@@ -1,7 +1,7 @@
 import CartFull from "./CartFull";
 import Cart from "./Cart";
 import { useDispatch, useSelector } from "react-redux";
-import { adding, reducing } from "./Context";
+import { adding, reducing, setImageLoaded } from "./Context";
 import { useQuery } from "@tanstack/react-query";
 import { getMenu } from "./services/apiMenu";
 import Spinner from "./Spinner";
@@ -9,6 +9,7 @@ import Spinner from "./Spinner";
 function Desserts() {
 	const dispatch = useDispatch();
 	const cartItems = useSelector((state) => state.add.items);
+	const imageLoaded = useSelector((state) => state.add.imageLoaded);
 
 	const {
 		isLoading,
@@ -68,9 +69,13 @@ function Desserts() {
 									clicked
 										? "border-4 border-[#c9451d] shadow-lg"
 										: "border-4 border-transparent"
-								}`}
+								} ${imageLoaded ? "blur-0" : "blur-2xl"}`}
 								src={s.image}
 								alt="something"
+								loading="lazy"
+								placeholder="blur"
+								quality={80}
+								onLoad={() => dispatch(setImageLoaded())}
 							/>
 							<div className="flex flex-col items-center justify-center">
 								{!clicked ? (

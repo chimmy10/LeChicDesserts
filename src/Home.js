@@ -1,11 +1,9 @@
-import { useDispatch } from "react-redux";
-import { setExplore } from "./Context";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setExplore, setImageLoaded } from "./Context";
 
 function Home() {
 	const dispatch = useDispatch();
-
-	const [imageLoaded, setImageLoaded] = useState(false);
+	const imageLoaded = useSelector((state) => state.add.imageLoaded);
 
 	return (
 		<main className="relative h-screen">
@@ -18,7 +16,7 @@ function Home() {
 				loading="lazy"
 				placeholder="blur"
 				quality={80}
-				onLoad={() => setImageLoaded(true)} // Set the state to remove blur when loaded
+				onLoad={() => dispatch(setImageLoaded())} // Set the state to remove blur when loaded
 			/>
 
 			<div className="relative z-10 flex flex-col items-center h-full text-center pt-60 sm:pt-48">
